@@ -1,0 +1,127 @@
+
+        ################# terminfo colors-16 # copied from .bash/.git-prompt.sh
+        #
+        #       black?    0 8
+        #       red       1 9
+        #       green     2 10
+        #       yellow    3 11
+        #       blue      4 12
+        #       magenta   5 13
+        #       cyan      6 14
+        #       white     7 15
+        #
+        #       terminfo setaf/setab - sets ansi foreground/background
+        #       terminfo sgr0 - resets all attributes
+        #       terminfo colors - number of colors
+        #
+        #################  Colors-256
+        #  To use foreground and background colors:
+        #       Set the foreground color to index N:    \033[38;5;${N}m
+        #       Set the background color to index M:    \033[48;5;${M}m
+        # To make vim aware of a present 256 color extension, you can either set
+        # the $TERM environment variable to xterm-256color or use vim's -T option
+        # to set the terminal. I'm using an alias in my bashrc to do this. At the
+        # moment I only know of two color schemes which is made for multi-color
+        # terminals like urxvt (88 colors) or xterm: inkpot and desert256,
+
+        ### if term support colors,  then use color prompt, else bold
+              black="\[`tput dim; tput setaf 0`\]"
+                red="\[`tput dim; tput setaf 1`\]"
+              green="\[`tput dim; tput setaf 2`\]"
+             yellow="\[`tput dim; tput setaf 3`\]"
+               blue="\[`tput dim; tput setaf 4`\]"
+            magenta="\[`tput dim; tput setaf 5`\]"
+               cyan="\[`tput dim; tput setaf 6`\]"
+              white="\[`tput dim; tput setaf 7`\]"
+
+              BLACK="\[`tput bold; tput setaf 0`\]"
+                RED="\[`tput bold; tput setaf 1`\]"
+              GREEN="\[`tput bold; tput setaf 2`\]"
+             YELLOW="\[`tput bold; tput setaf 3`\]"
+               BLUE="\[`tput bold; tput setaf 4`\]"
+            MAGENTA="\[`tput bold; tput setaf 5`\]"
+               CYAN="\[`tput bold; tput setaf 6`\]"
+              WHITE="\[`tput bold; tput setaf 7`\]"
+
+                #dim='\['`tput sgr0; tput setaf p1`'\]'  # half-bright
+        dim="\[`tput setaf 240`\]"  # half-bright
+        freshness="${dim}="
+        bw_bold="\[`tput bold`\]"
+
+        on=''
+        off=': '
+        # bell="\[`eval ${!error_bell} tput bel; tput flash`\]"
+        colors_reset="\[`tput dim; tput setab 0; tput setaf 7`\]"
+
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
+    else
+        color_prompt=
+    fi
+fi
+
+# set variable identifying the chroot you work in (used in the prompt below) - https://askubuntu.com/a/372876
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+if (( EUID == 0 )); then
+  color_root=$(tput setaf 1)
+  color_user=$(tput setaf 2)
+  color_sudo=$(tput setaf 3)
+  color_reset=$(tput sgr0)
+fi
+
+if (( EUID == 0 )); then
+    PS1="\\[$color_root\\]$PS1\\[$color_reset\\]"
+elif [[ $SUDO_USER ]]; then
+    PS1="\\[$color_sudo\\]$PS1\\[$color_reset\\]"
+else
+    PS1="\\[$color_user\\]$PS1\\[$color_reset\\]"
+fi
+
+
+#[ -f ~/.bash/git-prompt.sh ] && source . ~/.bash/git-prompt.sh
+[ -f ~/.bash/git-flow-completion.bash ] && source ~/.bash/git-flow-completion.bash
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi

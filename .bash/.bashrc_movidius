@@ -1,0 +1,3 @@
+# export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python:/opt/movidius/mvnc/python:/opt/movidius/NCSDK/ncsdk-x86_64/api/python"
+# export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python:/opt/movidius/mvnc/python"
+export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python"

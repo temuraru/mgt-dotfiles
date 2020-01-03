@@ -1,0 +1,135 @@
+alias aliases='less ~/.bash/.bash_aliases ~/.gitconfig'
+# General
+alias h="history|grep "
+alias f="find . |grep "
+alias p="ps aux |grep "
+#alias o="gnome-open "
+#alias open='gnome-open'
+#alias d='cd /home/teo/Desktop' 
+# 
+alias duck='du -skc * | sort -rn'
+#alias chm='kchmviewer'
+alias nb='nano ~/.bashrc'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias svim='sudo vim'
+alias cim='vim'
+alias back='cd $OLDPWD'
+alias root='sudo su'
+alias runlevel='sudo /sbin/init'
+alias dfh='df -h'
+alias gvim='gvim -geom 84x26'
+# Directory navigation aliases
+alias cd..="cd .."
+alias cd...="cd ../.."
+alias cd....="cd ../../.."
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias du="du -h"
+alias df="df -h"
+# interactive
+alias cp='cp -vi'
+alias mv='mv -vi'
+# System info
+alias cpuu="ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'"
+alias memu='ps -e -o rss=,args= | sort -b -k1,1n | pr -TW$COLUMNS'
+alias pg='ps aux | grep'  #requires an argument
+# Music
+alias ncmpc='ncmpc -cm'
+# apt
+alias agi='sudo apt-get install -y'
+alias agr='sudo apt-get remove'
+alias agu='sudo apt-get update'
+alias agg='sudo apt-get upgrade'
+alias acs='apt-cache search'
+alias sources='gksudo gedit /etc/apt/sources.list'
+# network
+alias net1='watch --interval=2 "sudo netstat -apn -l -A inet"'
+alias net2='watch --interval=2 "sudo netstat -anp --inet --inet6"'
+alias net3='sudo lsof -i'
+alias net4='watch --interval=2 "sudo netstat -p -e --inet --numeric-hosts"'
+alias net5='watch --interval=2 "sudo netstat -tulpan"'
+alias net6='sudo netstat -tulpan'
+alias net7='watch --interval=2 "sudo netstat -utapen"'
+alias net8='watch --interval=2 "sudo netstat -ano -l -A inet"'
+alias netl='sudo nmap -sT -O localhost' # more here http://www.redhat.com/docs/manuals/linux/RHL-9-Manual/security-guide/s1-server-ports.html
+alias ping='ping -c 10'
+alias whois='whois -H'
+# listings
+alias ls='ls -h --color=auto'
+alias lh='ls -lah'                # human readable (sizes) long and all ;-)
+alias lls='ls -l -h -g -F --color="auto" '
+alias lc='ls -aCF'
+alias lsam='ls -am'               # List files horizontally
+alias lr='ls -lR'                 # recursive
+alias lsx='ls -ax'                # sort right to left rather then in columns
+alias lss='ls -shAxSr'            # sort by size
+alias lt='ls -lAtrh'              # sort by date and human readable
+alias lm='ls -al |more'           # pipe through 'more'
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias dir='ls --color=auto --format=vertical'
+alias vdir='vdir --color=auto --format=long'
+# scripts
+# 
+# chmod and permissions commands
+alias mx='chmod a+x'
+alias 000='chmod 000'
+alias 644='chmod 644'
+alias 755='chmod 755'
+alias perm='stat --printf "%a %n \n "' # requires a file name e.g. perm file
+# lynx web browser
+alias bbc='lynx http://news.bbc.co.uk/text_only.stm'
+alias nytimes='lynx http://nytimes.com'
+alias dmregister='lynx http://desmoinesregister.com'
+alias google='lynx http://google.co.uk'
+# 
+#emag scripts
+alias ra='sudo /etc/init.d/apache2 restart'
+alias cdweb='cd /var/www/www.emag/web/'
+alias cdv='cd /var/www/www.emag/vendor/'
+alias cll='rm -rf /var/www/$1".emag/web/templates_c/*.php" /var/www/$1".emag/web/cache/js/*.js" /var/www/$1".emag/web/cache/css/*.css" /var/www/$1".emag/app/cache/*"'
+# | /var/www/$1".emag/app/console" --env="$EMAG_ENV" cache:clear'
+alias cda='cd /var/www/admin.emag/'
+alias cdw='cd /var/www/www.emag/'
+alias cde='cd vendor/EOS/'
+alias clc='rm -rf web/templates_c/*.php web/cache/js/*.js web/cache/css/*.css app/cache/*'
+alias clw='cd /var/www/www.emag && clc'
+#tail
+alias tl='tail -f /var/log/nginx/m.emag.ro-error.log /var/log/nginx/admin.emag.ro-error.log /var/log/nginx/www.emag.ro-error.log'
+alias tlf='tail -f /var/www/q.consumer/logs/error.log /var/www/q.consumer/logs/order_update_log.log /var/log/nginx/admin.emag.ro-error.log /var/log/nginx/www.emag.ro-error.log /var/log/nginx/m.emag.ro-error.log /var/www/gearman/logs/error.log /var/www/gearman/logs/workers/update_orders.log /var/www/gearman/logs/workers/vignette_order_update_worker.log'
+#
+alias r1="echo $1"
+#git
+alias gs="git status"
+alias gp="git pull"
+alias gf="git fetch"
+alias lg="git lg"
+alias gti="git"
+#supervisor
+alias sv="supervisorctl -s 'http://127.0.0.1:8989' -u admin -p parolasupervisor1213"
+alias sss="sudo supervisorctl status"
+#
+alias cdr="cd /var/www/rec-engine-app"
+alias tdev="ssh tgt2-dev.emag.local"
+alias td1="ssh tgt1-dev.emag.local"
+alias td2="ssh tgt2-dev.emag.local"
+alias td3="ssh tgt3-dev.emag.local"
+alias td4="ssh tgt4-dev.emag.local"
+alias tp1="ssh tgt1-prod.emag.local"
+alias tp2="ssh tgt2-prod.emag.local"
+alias tp3="ssh tgt3-prod.emag.local"
+alias rp1="ssh rec-www1-all-prod.emag.network"
+alias rp2="ssh rec-www2-all-prod.emag.network"
+alias rp3="ssh rec-www3-all-prod.emag.network"
+alias rs2="ssh rec-ro.rec2-stage.emag.network"
+alias eos10="ssh eos10-dev.emag.local"
+#
+alias lcdp="cd ~/work/projects/"
+alias lcdw="cd ~/work/projects/www"
+##

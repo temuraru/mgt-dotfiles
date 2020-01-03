@@ -1,0 +1,44 @@
+# display current weather
+#echo "curl http://wttr.in/bucharest";
+#curl "http://wttr.in/bucharest"
+
+# fix for raspberryPi terminal
+export TERM="xterm"
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+   PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+fi
+
+# set GO vars if it is installed
+if [ -d "/usr/local/go/bin" ] ; then
+    export GOROOT=/usr/local/go
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+    export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/usr/local/lib/pkgconfig/:/usr/lib64/pkgconfig/:/usr/local/share/pkgconfig:$PKG_CONFIG_PATH"
+fi
+
+# eMAG dev 
+# export shell vars
+export STACK=teodor.muraru-dev
+export country_code=ro
+# send keys to remote servers on each ssh
+ssh-agent -s
+ssh-add
+
+# neofetch
+
+# mkdir & cd - https://linuxize.com/post/bash-functions/ # the inner code should be on separate lines!
+mkcdir() {
+	mkdir -p -- "$1" && cd -P -- "$1" 
+}
+
+if [ -d "$HOME/.cargo/bin" ] ; then
+	export PATH=$PATH:$HOME/.cargo/bin
+fi          
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# set GO vars if it is installed
+if [ -d "$HOME/.rvm/bin" ] ; then
+	export PATH="$PATH:$HOME/.rvm/bin:HOME/rvm/rubies/ruby-2.0.0-p648/bin"
+fi
