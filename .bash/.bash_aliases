@@ -142,14 +142,15 @@ alias gti="git"
 alias sv="supervisorctl -s 'http://127.0.0.1:8989' -u admin -p parolasupervisor1213"
 alias sss="sudo supervisorctl status"
 # ssh to servers
-# -- neos dev/live
-alias ndev="ssh neos-all18071-all-dev.tgt.e3.c.emag.network"
+# -- TGT Build - to make deploys/run capistrano cmds from it
+alias tb1="ssh tgt-build1-all-prod.emag.network"
+alias tbuild="ssh tgt-build1-all-prod.emag.network"
+# -- Neos dev/prod
 alias np1="ssh neos-www1-all-prod.emag.network"
 alias np2="ssh neos-www2-all-prod.emag.network"
-# -- tgt dev/live
+alias ndev="ssh neos-all18071-all-dev.tgt.e3.c.emag.network"
+# -- Tgt dev/prod
 alias tdev="ssh tgt-all31497-all-dev.tgt.e3.c.emag.network"
-alias tbuild="ssh tgt-build1-all-prod.emag.network"
-alias tb1="ssh tgt-build1-all-prod.emag.network"
 alias rb1="ssh tgt-build1-all-prod.emag.network"
 alias ts1="ssh tgt-www1-all-stage.emag.network"
 alias tp1="ssh tgt-www1-all-prod.emag.network"
@@ -168,7 +169,8 @@ alias tp13="ssh tgt-www13-all-prod.emag.network"
 alias tp14="ssh tgt-www14-all-prod.emag.network"
 alias tp15="ssh tgt-www15-all-prod.emag.network"
 alias tp16="ssh tgt-www16-all-prod.emag.network"
-# -- rec live/stage/dev/stack
+# -- rec prod/stage/dev/stack
+alias rdev="ssh rec-all68861-all-dev.tgt.e3.c.emag.network"
 alias rp1="ssh rec-www1-all-prod.emag.network"
 alias rp2="ssh rec-www2-all-prod.emag.network"
 alias rp3="ssh rec-www3-all-prod.emag.network"
@@ -192,14 +194,19 @@ alias rwp3="ssh rec-worker3-all-prod.emag.network"
 alias rwp4="ssh rec-worker4-all-prod.emag.network"
 alias rwp5="ssh rec-worker5-all-prod.emag.network"
 alias rwp6="ssh rec-worker6-all-prod.emag.network"
-alias rs1="ssh rec-ro-stage.emag.network"
-alias rd1="ssh rec-www1-all-dev.emag.network"
-alias rdev="ssh rec-all68861-all-dev.tgt.e3.c.emag.network"
+# -- Rec Neo4j machines (prod/stage)
+alias rnp1="ssh rec-neoj1-ro-prod.emag.network"
+alias rnp2="ssh rec-neoj2-ro-prod.emag.network"
+alias rnp3="ssh rec-neoj3-ro-prod.emag.network"
+alias rns1="ssh rec-neoj1-ro-stage.emag.network"
+# ---- deprecated
 alias rdev_old="ssh rec-all68861-all-dev.tgt.c.emag.network"
-alias rdev1="ssh rec-all6416-all-dev.tgt.c.emag.network"
-alias rdev2="ssh rec-all7954-all-dev.tgt.c.emag.network"
-alias eos10="ssh eos10-dev.emag.local"
-#
+alias rs1_deprecated="ssh rec-ro-stage.emag.network"
+alias rd1_deprecated="ssh rec-www1-all-dev.emag.network"
+alias rdev1_deprecated="ssh rec-all6416-all-dev.tgt.c.emag.network"
+alias rdev2_deprecated="ssh rec-all7954-all-dev.tgt.c.emag.network"
+alias eos10_deprecated="ssh eos10-dev.emag.local"
+# Local cmds aliases
 alias lcdp="cd ~/work/projects/"
 alias lcdr="cd ~/work/projects/rec-engine-app/"
 alias rcdr="cd ~/work/projects/rec-engine-app/"

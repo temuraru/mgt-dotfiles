@@ -1,0 +1,27 @@
+#!/bin/bash
+################################################################################
+#                                gitlog.id2                                    #
+#                                                                              #
+# gitlog.id2 is the same as gitlog.id but without the branch line at the top.  #
+# This is handy for cherry-picking all patches from one branch to              #
+# the current branch                                                           #
+# For example:                                                                 #
+# $ git branch --track origin/master # create a new branch                     #
+# $ git checkout recovery26 # check out the new branch I just created          #
+# $ # cherry-pick all patches from the old branch to the new one               #
+# $ for i in `gitlog.id2 recovery25` ; do git cherry-pick $i ;done             #
+#                                                                              #
+# Change History                                                               #
+# 2020-01-17  Bob Peterson (Red Hat)    Copied from:                           #
+#             https://opensource.com/article/20/1/bash-scripts-git             #
+#                                                                              #
+################################################################################
+
+branch=$1
+
+if test "x$branch" = x; then
+    branch=`git branch -a | grep "*" | cut -d ' ' -f2`
+fi
+
+tracking=`git rev-parse --abbrev-ref --symbolic-full-name @{u}`
+git log --reverse --abbrev-commit --pretty=oneline $tracking..$branch | cut -d ' ' -f1 |paste -s -d ' '

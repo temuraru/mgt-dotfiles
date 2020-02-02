@@ -1,0 +1,51 @@
+#!/bin/bash
+################################################################################
+#                               gitlog.grep                                    #
+#                                                                              #
+# gitlog.grep greps for a string within that collection of patches.            #
+# For example, if I find a bug and want to fix the patch that has a reference  #
+# to function inode_go_sync, I simply do:                                      #
+# $ gitlog.grep inode_go_sync                                                  #
+#                                                                              #
+# Change History                                                               #
+# 11/11/2019  David Both    Original code. This is a template for creating     #
+#                           new Bash shell scripts.                            #
+#                           Add new history entries as needed.                 #
+#                                                                              #
+#                                                                              #
+################################################################################
+
+param1=$1
+param2=$2
+
+if test "x$param2" = x; then
+    branch=`git branch -a | grep "*" | cut -d ' ' -f2`
+    string=$param1
+else
+    branch=$param1
+    string=$param2
+fi
+
+patches=0
+tracking=`git rev-parse --abbrev-ref --symbolic-full-name @{u}`
+
+LIST=`git log --reverse --abbrev-commit --pretty=oneline $tracking..$branch | cut -d ' ' -f1 |paste -s -d ' '`
+for i in $LIST; do patches=$(echo $patches + 1 | bc);done
+echo "-----------------------[" $branch "-" $patches "patches ]-----------------------"
+patches=$(echo $patches - 1 | bc);
+for i in $LIST; do
+    if [ $patches -eq 1 ]; then
+        cnt=" ^"
+    elif [ $patches -eq 0 ]; then
+        cnt=" H"
+    else
+        if [ $patches -lt 10 ]; then
+            cnt=" $patches"
+        else
+            cnt="$patches"
+        fi
+    fi
+    git show --abbrev-commit -s --pretty=format:"$cnt %h %<|(32)%an %s" $i
+    git show --pretty=email --patch-with-stat $i | grep -n "$string"
+    patches=$(echo $patches - 1 | bc)
+done
