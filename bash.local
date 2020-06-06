@@ -22,6 +22,7 @@ fi
 # export shell vars
 export STACK=teodor.muraru-dev
 export country_code=ro
+export EMAGOTPSECRET='OLUJOVSRDN5VOSCUQCEI5DEZ7BQ7IJTF' # auth for eMAG PKI
 # send keys to remote servers on each ssh
 ssh-agent -s
 ssh-add
@@ -42,3 +43,5 @@ fi
 if [ -d "$HOME/.rvm/bin" ] ; then
 	export PATH="$PATH:$HOME/.rvm/bin:HOME/rvm/rubies/ruby-2.0.0-p648/bin"
 fi
+
+export TERM=xterm-256color

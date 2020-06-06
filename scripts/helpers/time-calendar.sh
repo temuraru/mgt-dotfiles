@@ -25,10 +25,14 @@ sequentialDays() {
 }
 
 
+# time-calendar.sh: line 38: 31 - 31 + 1: syntax error: 
+# invalid arithmetic operator (error token is 31 - 31 + 1")
+# 
 # daysListInMonth month [year [startDay]]
 # Ex: $(daysListInMonth 2) -> 2020-02-01 ... 2020-02-29
 # $(daysListInMonth 2 2021) -> 2021-02-01 ... 2021-02-28
 # $(daysListInMonth 5 2021 6) -> 2021-05-06 ... 2021-05-31
+# $(daysListInMonth 3 2020) -> 2020-03-01 ... 2020-03-31
 # date --date="2020-05-01 +36 day" +"%Y-%m-%d" -> 2020-06-06
 listAllDaysInMonth() {
   CurrentMonth=$(date +"%m")

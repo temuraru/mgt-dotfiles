@@ -299,7 +299,7 @@ bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
 
 # Tmux statusline
 run-shell "powerline-daemon -q"
-source "/home/temuraru/.local/lib/python3.7/site-packages/powerline/bindings/tmux/powerline.conf"
+# source "/home/temuraru/.local/lib/python3.7/site-packages/powerline/bindings/tmux/powerline.conf"
 
 
 

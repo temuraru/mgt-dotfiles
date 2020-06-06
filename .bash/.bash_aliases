@@ -1,4 +1,4 @@
-alias aliases='less ~/.bash/.bash_aliases ~/.gitconfig'
+alias aliases='less ~/.dotfiles/.bash/.bash_aliases ~/.gitconfig'
 alias vimaliass='vim ~/.bash/.bash_aliases'
 # General
 alias h="history|grep "
@@ -30,9 +30,9 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias du="du -h"
 alias df="df -h"
-alias cd2="cd /media/temuraru/seagate2tb"
-alias cd3="cd /media/temuraru/seagate3tb"
-alias cd4="cd /media/temuraru/seagate4tb"
+alias cds2t="cd /media/temuraru/seagate2tb"
+alias cds3t="cd /media/temuraru/seagate3tb"
+alias cds4t="cd /media/temuraru/seagate4tb"
 alias mkcd="mkcdir " # .bash_local: mkcdir () { mkdir -p -- "$1" && cd -P -- "$1" } # the code should be on separate lines!!!
 # interactive
 alias cp='cp -vi'
@@ -43,6 +43,16 @@ alias memu='ps -e -o rss=,args= | sort -b -k1,1n | pr -TW$COLUMNS'
 alias pg='ps aux | grep'  #requires an argument
 # Music
 alias ncmpc='ncmpc -cm'
+# alias yt-audio-mp3='youtube-dl --extract-audio --audio-format mp3 --ignore-errors --ignore-config --no-playlist --hls-prefer-native --write-description --write-thumbnail --embed-thumbnail --newline --no-call-home --no-progress --output "~/Music/%(title)s-%(id)s.%(ext)s"'
+alias yt-audio-mp3='youtube-dl --config-location ~/.dotfiles/.config/youtube-dl/yt-audio-mp3.cfg'
+# alias yt-audio-pls='youtube-dl --extract-audio --audio-format mp3 --ignore-errors --ignore-config --yes-playlist --hls-prefer-native --min-filesize 3m --write-description --write-thumbnail --embed-thumbnail --newline --no-call-home --no-progress --output "~/Music/%(playlist_uploader)s/%(playlist)s/%(playlist_index)d-%(title)s-%(id)s.%(ext)s"'
+alias yt-audio-pls='youtube-dl --config-location ~/.dotfiles/.config/youtube-dl/yt-audio-pls.cfg'
+# yt-audio-pls-all-in-1 -a input-file-with-playlists-links.lst - ex: yt-audio-pls-all-in-1 -a /home/temuraru/Dropbox/Personal/boostnotes/personal/inventory/multimedia/youtube-dl/background-music-all-in-1-mrmoto.md
+alias yt-audio-pls-all-in-1='youtube-dl --config-location ~/.dotfiles/.config/youtube-dl/yt-audio-pls-all-in-1.cfg'
+# alias yt-video-mp4='youtube-dl --ignore-errors --ignore-config --no-playlist --hls-prefer-native --write-description --write-thumbnail --embed-thumbnail --newline --no-call-home --no-progress --output "~/Music/%(title)s-%(id)s.%(ext)s"'
+alias yt-video-mp4='youtube-dl --config-location ~/.dotfiles/.config/youtube-dl/yt-video-mp4.cfg'
+# alias yt-video-pls='youtube-dl --ignore-errors --ignore-config --no-playlist --hls-prefer-native --write-description --write-thumbnail --embed-thumbnail --newline --no-call-home --no-progress --output "~/Music/%(title)s-%(id)s.%(ext)s"'
+alias yt-video-pls='youtube-dl --config-location ~/.dotfiles/.config/youtube-dl/yt-video-pls.cfg'
 # apt
 alias sai='sudo apt-get install'
 alias agi='sudo apt-get install'
@@ -104,8 +114,8 @@ alias clw='cd /var/www/www.emag && clc'
 alias cdtt='cd /var/www/teo/tgt/'
 alias cdtr='cd /var/www/teo/rec/'
 # live servers
-alias cdtc='cd /var/www/targeting/current/'
-alias cdt='cd /var/www/targeting/'
+alias cdtc='cd /var/www/targeting/current/ || cd /var/www/tgt/'
+alias cdt='cd /var/www/targeting/ || cd /var/www/tgt/'
 # build server
 alias cdnb='cd /var/www/neos/'
 alias cdrb='cd /var/www/rec/'
@@ -113,12 +123,12 @@ alias cdtb='cd /var/www/tgt/'
 alias cdtgt='cd /var/www/tgt/'
 alias cdr="cd /var/www/rec"
 alias cdrec="cd /var/www/rec"
-alias cdrc='cd /var/www/rec/current/'
+alias cdrc='cd /var/www/rec/current/ || cd /var/www/rec/'
 alias cdnl='cd /var/www/neolane/'
 alias cdnlc='cd /var/www/neolane/current/'
 alias cdn='cd /var/www/neos/'
 alias cdneos='cd /var/www/neos/'
-alias cdnc='cd /var/www/neos/current/'
+alias cdnc='cd /var/www/neos/current/ || cd /var/www/neolane/current/ || cd /var/www/neolane/ || cd /var/www/neos'
 # local projects
 alias dtp='cd ~/Desktop'
 alias cdht='cd ~/work/projects/tgt/'
@@ -130,6 +140,7 @@ alias tl='tail -f /var/log/nginx/m.emag.ro-error.log /var/log/nginx/admin.emag.r
 alias tlf='tail -f /var/www/q.consumer/logs/error.log /var/www/q.consumer/logs/order_update_log.log /var/log/nginx/admin.emag.ro-error.log /var/log/nginx/www.emag.ro-error.log /var/log/nginx/m.emag.ro-error.log /var/www/gearman/logs/error.log /var/www/gearman/logs/workers/update_orders.log /var/www/gearman/logs/workers/vignette_order_update_worker.log'
 # rm -rf web/bundles/* && php app/console assets:install && php app/console assetic:dump
 alias rmass="rm -rf web/bundles/* && php app/console assets:install && php app/console assetic:dump"
+alias rac="rm -rf app/cache/* && rm -rf var/cache/*"
 alias assetic="php app/console assets:install && php app/console assetic:dump"
 alias r1="echo $1"
 #git
@@ -171,6 +182,7 @@ alias tp15="ssh tgt-www15-all-prod.emag.network"
 alias tp16="ssh tgt-www16-all-prod.emag.network"
 # -- rec prod/stage/dev/stack
 alias rdev="ssh rec-all68861-all-dev.tgt.e3.c.emag.network"
+alias rs1="ssh rec-www1-all-stage.emag.network"
 alias rp1="ssh rec-www1-all-prod.emag.network"
 alias rp2="ssh rec-www2-all-prod.emag.network"
 alias rp3="ssh rec-www3-all-prod.emag.network"
@@ -198,7 +210,25 @@ alias rwp6="ssh rec-worker6-all-prod.emag.network"
 alias rnp1="ssh rec-neoj1-ro-prod.emag.network"
 alias rnp2="ssh rec-neoj2-ro-prod.emag.network"
 alias rnp3="ssh rec-neoj3-ro-prod.emag.network"
+alias rnp4="ssh rec-neoj4-ro-prod.emag.network"
+alias rnp5="ssh rec-neoj5-ro-prod.emag.network"
 alias rns1="ssh rec-neoj1-ro-stage.emag.network"
+# -- Stack vanilla machines (vst=Vanilla Stack Teo)
+alias vst1="ssh gen-centos724847-all-dev.tgt.e3.c.emag.network"
+alias vst2="ssh gen-centos712460-all-dev.tgt.e3.c.emag.network"
+alias vst3="ssh gen-centos716589-all-dev.tgt.e3.c.emag.network"
+alias vst4="ssh gen-centos736970-all-dev.tgt.e3.c.emag.network"
+alias vst5="ssh gen-centos741099-all-dev.tgt.e3.c.emag.network"
+# services aliases:
+alias ssstop="sudo systemctl stop $1"
+alias ssstart="sudo systemctl start $1"
+alias ssrestart="sudo systemctl start $1"
+alias ssstatus="sudo systemctl status $1"
+alias ssstat="sudo systemctl status $1"
+alias ssstatusnj="sudo systemctl status neo4j"
+alias ssstatnj="sudo systemctl status neo4j"
+alias ssstopnj="sudo systemctl stop neo4j"
+alias ssstartnj="sudo systemctl start neo4j"
 # ---- deprecated
 alias rdev_old="ssh rec-all68861-all-dev.tgt.c.emag.network"
 alias rs1_deprecated="ssh rec-ro-stage.emag.network"
@@ -214,15 +244,19 @@ alias lcdt="cd ~/work/projects/trigger-system/"
 alias rcdt="cd ~/work/projects/targeting/"
 alias puppy="sudo /opt/puppetlabs/bin/puppet"
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
+# Add an "alert" alias for long running commands.  Use like so: # sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-
-# To copy the current path to the clipboard you can use the following command: > pwd | xclip -sel clip
-# I've created an alias to the last command: xsc. It allows me to type simpler:> pwd | xsc
-alias xsc='xclip -sel clip'
+alias xsc='xclip -sel clip' #  pwd | xsc
+alias setclip="xclip -selection clipboard" # copy to clipboard: `echo -n foo | setclip` # "-n" to skip ading newline! # `xclip -sel c {{input_file.txt}}`
+alias getclip="xclip -selection c -o" # paste from clipboard: getclip # `xclip -o` # `xclip -o -sel clip > {{output_file.txt}}`
 alias dj="subl $JOURNAL_CURRENT_FILENAME"
+alias vsc="vscode "
+alias emagotp="~/.dotfiles/scripts/otp.py"
 
+# RPi aliases:
+alias shot='SHOTTIME=$(date +"%Y-%m-%d_%H%M") && raspistill -o shot-$SHOTTIME.jpg --nopreview --exposure sports --timeout 1'
+alias sshpi='ssh pi@192.168.1.30'
+alias pingpi='ping pi@192.168.1.30'
 
-##
+# end
