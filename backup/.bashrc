@@ -41,7 +41,8 @@ shopt -s checkwinsize
 # not used yet.... work in progress!
 function setupDotFiles() {
 	mkdir -p $DOTFILES && cd $DOTFILES/
-	git clone git@github.com:temuraru/mgt-dotfiles.git .
+	git clone https://github.com/temuraru/mgt-dotfiles.git .
+	# git clone git@github.com:temuraru/mgt-dotfiles.git .
 	# internal .dotfiles setup: 
 	# 	set symlinks (rcm/rmc?!) from $HOME to $HOME/.dotfiles
 	# 	set python alias symlink to python3 by default! 
