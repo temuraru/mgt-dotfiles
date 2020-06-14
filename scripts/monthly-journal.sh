@@ -3,10 +3,6 @@
 # *********************************************
 # ~/.dotfiles/scripts/monthly-journal.sh
 # *********************************************
-DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
-# source the includer script
-. "$DIR/include-helpers.sh"
 
 ## Depends on global variable JOURNAL_DAILY_TEMPLATE to be defined, otherwise it fails
 processFile() {

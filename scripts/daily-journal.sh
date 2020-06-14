@@ -1,5 +1,6 @@
 # *********************************************
 # ~/.dotfiles/scripts/daily-journal.sh
+# @DEPRECATED by ~/.dotfiles/scripts/monthly-journal.sh
 # *********************************************
 
 # read the JOURNAL_DAILY_LOCATION shell variable or use a default value

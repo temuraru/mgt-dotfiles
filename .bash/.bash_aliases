@@ -24,10 +24,16 @@ alias gvim='gvim -geom 84x26'
 alias cd..="cd .."
 alias cd...="cd ../.."
 alias cd....="cd ../../.."
+# cd up multiple directories at a time
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+alias .......='cd ../../../../../../'
+alias ........='cd ../../../../../../../'
+alias .........='cd ../../../../../../../../'
+alias ..........='cd ../../../../../../../../../'
 alias du="du -h"
 alias df="df -h"
 alias cds2t="cd /media/temuraru/seagate2tb"
@@ -35,8 +41,12 @@ alias cds3t="cd /media/temuraru/seagate3tb"
 alias cds4t="cd /media/temuraru/seagate4tb"
 alias mkcd="mkcdir " # .bash_local: mkcdir () { mkdir -p -- "$1" && cd -P -- "$1" } # the code should be on separate lines!!!
 # interactive
-alias cp='cp -vi'
-alias mv='mv -vi'
+alias cp='cp -i'
+alias mv='mv -i'
+# Make the permissions tweaking commands give us more information about what they are doing
+alias chmod='chmod -c'
+alias chown='chown -c'
+alias chgrp='chgrp -c'
 # System info
 alias cpuu="ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'"
 alias memu='ps -e -o rss=,args= | sort -b -k1,1n | pr -TW$COLUMNS'
@@ -53,6 +63,17 @@ alias yt-audio-pls-all-in-1='youtube-dl --config-location ~/.dotfiles/.config/yo
 alias yt-video-mp4='youtube-dl --config-location ~/.dotfiles/.config/youtube-dl/yt-video-mp4.cfg'
 # alias yt-video-pls='youtube-dl --ignore-errors --ignore-config --no-playlist --hls-prefer-native --write-description --write-thumbnail --embed-thumbnail --newline --no-call-home --no-progress --output "~/Music/%(title)s-%(id)s.%(ext)s"'
 alias yt-video-pls='youtube-dl --config-location ~/.dotfiles/.config/youtube-dl/yt-video-pls.cfg'
+# Quiet, ffmpeg!
+alias ffmpeg='ffmpeg -hide_banner'
+alias ffprobe='ffprobe -hide_banner'
+# mkfifo -> mkpipe - Makes FIFOs (named pipes).
+alias mkpipe='mkfifo'
+# Test Processing
+# From https://www.reddit.com/r/tinycode/comments/c63gr6/deblank_remove_blank_lines_from_a_file_or_stdin/
+alias deblank='grep -vE "^\s*$"'
+# hr
+alias hrh='hr - - = - -'
+# termbin for any kind of file
 # apt
 alias sai='sudo apt-get install'
 alias agi='sudo apt-get install'
@@ -91,6 +112,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias dir='ls --color=auto --format=vertical'
 alias vdir='vdir --color=auto --format=long'
+alias less='less -R' # less - display line numbers, and allow colour
 # scripts
 #
 # chmod and permissions commands

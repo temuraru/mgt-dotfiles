@@ -1,7 +1,4 @@
 
-
-
-
 function apt-updater {
 	apt-get update &&
 	apt-get dist-upgrade -Vy &&
@@ -46,3 +43,19 @@ explain () {
 	  echo "explain 'cmd -o | ...'   one quoted command to explain it."
 	fi
 }
+
+# Set the window title
+set-title() {
+	echo -e '\033]2;'$1'\033\\';
+	# Tell set_bash_prompt that we don't want it to reset the terminal title again
+	TITLE_SET_MANUALLY=true;
+}
+
+# Display a sorted list of processes and their swap usage 
+# Source: https://www.cyberciti.biz/faq/linux-which-process-is-using-swap/
+swaptop() {
+	for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
+}
+
+# gitignore.io interface
+gitignore() { curl -L -s https://www.gitignore.io/api/$@; }
