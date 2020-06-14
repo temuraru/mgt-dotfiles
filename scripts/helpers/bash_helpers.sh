@@ -59,3 +59,17 @@ swaptop() {
 
 # gitignore.io interface
 gitignore() { curl -L -s https://www.gitignore.io/api/$@; }
+
+# Quickly jump around places
+telepeek() {
+	find . -type d 2>/dev/null | grep -iP "$@" | cat -n | sed 's/^[ 0-9]*[0-9]/\o033[34m&\o033[0m/' | less -R
+}
+teleport() {
+	cd "$(find . -type d 2>/dev/null | grep -m1 -iP "$@")";
+}
+telepick() {
+	telepeek $@;
+	read -p "jump to index: " line_number;
+	cd "$(find . -type d 2>/dev/null | grep -iP "$1" | sed "${line_number}q;d")";
+}
+

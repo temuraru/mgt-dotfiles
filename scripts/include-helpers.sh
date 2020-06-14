@@ -13,7 +13,6 @@ if [[ ! -d "$INCLUDER_DIR" ]]; then INCLUDER_DIR="$PWD"; fi
 helperScripts="$INCLUDER_DIR/helpers/*.sh"
 for f in $helperScripts
 do
- echo "Processing $f"
  source $f
 done
 

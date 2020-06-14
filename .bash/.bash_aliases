@@ -73,7 +73,6 @@ alias mkpipe='mkfifo'
 alias deblank='grep -vE "^\s*$"'
 # hr
 alias hrh='hr - - = - -'
-# termbin for any kind of file
 # apt
 alias sai='sudo apt-get install'
 alias agi='sudo apt-get install'
@@ -280,5 +279,11 @@ alias emagotp="~/.dotfiles/scripts/otp.py"
 alias shot='SHOTTIME=$(date +"%Y-%m-%d_%H%M") && raspistill -o shot-$SHOTTIME.jpg --nopreview --exposure sports --timeout 1'
 alias sshpi='ssh pi@192.168.1.30'
 alias pingpi='ping pi@192.168.1.30'
+
+
+# URL Encode / Decode
+# From https://unix.stackexchange.com/a/216318/64687
+alias urlencode='python -c "import urllib, sys; print urllib.quote(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1], \"\")"'
+alias urldecode='python -c "import urllib, sys; print urllib.unquote(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
 
 # end

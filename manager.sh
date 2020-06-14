@@ -6,7 +6,6 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -d $DOTFILES/scripts ] && chmod 764 $DOTFILES/scripts/*
 [ -f $DOTFILES/scripts/include-helpers.sh ] && $DOTFILES/scripts/include-helpers.sh
-#[ -f $DOTFILES/scripts/daily-journal.sh ] && $DOTFILES/scripts/daily-journal.sh
 [ -f $DOTFILES/scripts/monthly-journal.sh ] && $DOTFILES/scripts/monthly-journal.sh
 
 #[ -f $DOTFILES/.bash/.bashrc_anaconda ] && source $DOTFILES/.bash/.bashrc_anaconda
