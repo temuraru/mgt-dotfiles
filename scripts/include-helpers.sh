@@ -11,6 +11,7 @@ if [[ ! -d "$INCLUDER_DIR" ]]; then INCLUDER_DIR="$PWD"; fi
 # . "$INCLUDER_DIR/helpers/time-calendar.sh"
 # . "$INCLUDER_DIR/helpers/transfer.sh"
 helperScripts="$INCLUDER_DIR/helpers/*.sh"
+chmod +x "$INCLUDER_DIR/helpers/*.sh"
 for f in $helperScripts
 do
  source $f
