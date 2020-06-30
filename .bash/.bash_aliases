@@ -145,12 +145,8 @@ alias cdtgt='cd /var/www/tgt/'
 alias cdr="cd /var/www/rec"
 alias cdrec="cd /var/www/rec"
 alias cdrc='cd /var/www/rec/current/ || cd /var/www/rec/'
-alias cdnl='cd /var/www/neolane/'
-alias cdnlc='cd /var/www/neolane/current/'
-alias cdn='cd /var/www/neos/'
-alias cdneos='cd /var/www/neos/'
-alias cdnc='cd /var/www/neos/current/ || cd /var/www/neolane/current/ || cd /var/www/neolane/ || cd /var/www/neos'
-# local projects
+alias cdnj='cd /var/lib/neo4j/'
+alias cdnjd='cd /var/lib/neo4j/data/databases/'# local projects
 alias dtp='cd ~/Desktop'
 alias cdht='cd ~/work/projects/tgt/'
 alias cdlt='cd ~/work/projects/trigger-system/'
@@ -251,12 +247,18 @@ alias ssstatnj="sudo systemctl status neo4j"
 alias ssstopnj="sudo systemctl stop neo4j"
 alias ssstartnj="sudo systemctl start neo4j"
 # ---- deprecated
-alias rdev_old="ssh rec-all68861-all-dev.tgt.c.emag.network"
-alias rs1_deprecated="ssh rec-ro-stage.emag.network"
-alias rd1_deprecated="ssh rec-www1-all-dev.emag.network"
-alias rdev1_deprecated="ssh rec-all6416-all-dev.tgt.c.emag.network"
-alias rdev2_deprecated="ssh rec-all7954-all-dev.tgt.c.emag.network"
-alias eos10_deprecated="ssh eos10-dev.emag.local"
+# alias rdev_old="ssh rec-all68861-all-dev.tgt.c.emag.network"
+# alias rs1_deprecated="ssh rec-ro-stage.emag.network"
+# alias rd1_deprecated="ssh rec-www1-all-dev.emag.network"
+# alias rdev1_deprecated="ssh rec-all6416-all-dev.tgt.c.emag.network"
+# alias rdev2_deprecated="ssh rec-all7954-all-dev.tgt.c.emag.network"
+# alias eos10_deprecated="ssh eos10-dev.emag.local"
+# alias cdnl='cd /var/www/neolane/'
+# alias cdnlc='cd /var/www/neolane/current/'
+# alias cdn='cd /var/www/neos/'
+# alias cdneos='cd /var/www/neos/'
+# alias cdnc='cd /var/www/neos/current/ || cd /var/www/neolane/current/ || cd /var/www/neolane/ || cd /var/www/neos'
+
 # Local cmds aliases
 alias lcdp="cd ~/work/projects/"
 alias lcdr="cd ~/work/projects/rec-engine-app/"

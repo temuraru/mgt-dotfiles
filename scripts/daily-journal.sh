@@ -3,6 +3,8 @@
 # @DEPRECATED by ~/.dotfiles/scripts/monthly-journal.sh
 # *********************************************
 
+trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
+
 # read the JOURNAL_DAILY_LOCATION shell variable or use a default value
 # https://stackoverflow.com/a/2013589/348783
 JOURNAL_DAILY_LOCATION=${JOURNAL_DAILY_LOCATION:='Dropbox/Personal/boostnotes/personal/daily-journal'}
@@ -35,3 +37,5 @@ then
 	echo "$JOURNAL_CURRENT_FILENAME created..."
   sed -i "1s/^/$JOURNAL_CURRENT_TITLE\n\n/" $JOURNAL_CURRENT_FILENAME
 fi
+
+#/home/temuraru/.dotfiles/scripts/monthly-journal.sh: line 42: 30 - 30 + 1: syntax error: invalid arithmetic operator (error token is 30 - 30 + 1")

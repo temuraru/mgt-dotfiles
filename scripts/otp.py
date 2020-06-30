@@ -3,9 +3,18 @@
 import onetimepass as otp
 import os, sys, time, datetime
 import pyperclip
+from signal import signal, SIGINT
+from sys import exit
+
+def handler(signal_received, frame):
+    # Handle any cleanup here
+    print('SIGINT or CTRL-C detected. Exiting gracefully')
+    exit(0)
 
 
 def otpDecrypt():
+    signal(SIGINT, handler)
+
     key = sys.argv[1] if sys.argv[1:] else 'EMAGOTPSECRET'
     my_secret = os.getenv(key, 'Secret_not_found_in_ENV') # ex: 'MFRGGZDFMZTWQ2LK' - exported previously with (eg): `export OTPSECRET='N3V3R G0nn4 G1v3 Y0u Up'`
     computeToken(key, my_secret)
