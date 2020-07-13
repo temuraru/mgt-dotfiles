@@ -39,8 +39,8 @@ listAllDaysInMonth() {
 	Cmonth=${1:-$CurrentMonth}
 	Cyear=${2:-"%Y"}
 	CstartDay=${3:-"1"}
+	CstartDay=$((10#$Cstart))
   DAYS_IN_CURRENT_MONTH=$(($(daysNrForMonth $Cmonth $Cyear) - $CstartDay + 1))
-
   sequentialDays $DAYS_IN_CURRENT_MONTH
 }
 
@@ -69,7 +69,7 @@ function join_by2 { local d=$1; shift; echo -n "$1"; shift; printf "%s" "${@/#/$
 
 # Ex: $(daysNrForMonth 2) -> 29 (for 2020)
 # $(daysNrForMonth 2 2021) -> 28
-daysNrForMonth(){
+daysNrForMonth() {
   CurrentMonth=$(date +"%m")
 	Cmonth=${1:-$CurrentMonth}
 	Cyear=${2:-"%Y"}

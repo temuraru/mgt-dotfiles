@@ -223,6 +223,7 @@ alias rwp3="ssh rec-worker3-all-prod.emag.network"
 alias rwp4="ssh rec-worker4-all-prod.emag.network"
 alias rwp5="ssh rec-worker5-all-prod.emag.network"
 alias rwp6="ssh rec-worker6-all-prod.emag.network"
+alias fosadmin="php app/console fos:user:create --super-admin teodor.muraru teodor.muraru@emag.ro 123123"
 # -- Rec Neo4j machines (prod/stage)
 alias rnp1="ssh rec-neoj1-ro-prod.emag.network"
 alias rnp2="ssh rec-neoj2-ro-prod.emag.network"
@@ -282,10 +283,19 @@ alias shot='SHOTTIME=$(date +"%Y-%m-%d_%H%M") && raspistill -o shot-$SHOTTIME.jp
 alias sshpi='ssh pi@192.168.1.30'
 alias pingpi='ping pi@192.168.1.30'
 
+# https://johnnydecimal.com - @TODO - TBD!!
+cjdfunction() {
+	pushd ~/Dropbox/Personal/boostnotes/*/*/${1}* # ~/Dropbox is my root folder, change to suit yours.
+}
+export cjdfunction
+alias cjd='cjdfunction' # Or any other alias you prefer.
 
 # URL Encode / Decode
 # From https://unix.stackexchange.com/a/216318/64687
 alias urlencode='python -c "import urllib, sys; print urllib.quote(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1], \"\")"'
 alias urldecode='python -c "import urllib, sys; print urllib.unquote(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
+
+# Dotfiles setup
+alias rmdot="rm -rf ~/.dotfiles"
 alias dotsetup='source <(curl -s https://www.temuraru.ro/bash/setup.sh)'
 # end
