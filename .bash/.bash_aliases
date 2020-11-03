@@ -146,6 +146,7 @@ alias cdr="cd /var/www/rec"
 alias cdrec="cd /var/www/rec"
 alias cdrc='cd /var/www/rec/current/ || cd /var/www/rec/'
 alias cdnj='cd /var/lib/neo4j/'
+alias cdnji='cd /var/lib/neo4j/import/'
 alias cdnjd='cd /var/lib/neo4j/data/databases/'
 alias dtp='cd ~/Desktop'
 alias cdht='cd ~/work/projects/tgt/'
@@ -171,14 +172,18 @@ alias sv="supervisorctl -s 'http://127.0.0.1:8989' -u admin -p parolasupervisor1
 alias sss="sudo supervisorctl status"
 # ssh to servers
 # -- TGT Build - to make deploys/run capistrano cmds from it
-alias tb1="ssh tgt-build1-all-prod.emag.network"
+alias tb1_old="ssh tgt-build1-all-prod.emag.network"
+alias tb1="ssh tgt-deploy1-all-prod.emag.network"
+alias rb1="ssh rec-deploy1-all-prod.emag.network"
+alias tdeploy="ssh tgt-deploy1-all-prod.emag.network"
+alias rdeploy="ssh rec-deploy1-all-prod.emag.network"
 alias tbuild="ssh tgt-build1-all-prod.emag.network"
 # -- Neos dev/prod
 alias np1="ssh neos-www1-all-prod.emag.network"
 alias np2="ssh neos-www2-all-prod.emag.network"
-alias ndev="ssh neos-all18071-all-dev.tgt.e3.c.emag.network"
+alias ndev="ssh neos-all18071-all-dev.tgt.e5.c.emag.network"
 # -- Tgt dev/prod
-alias tdev="ssh tgt-all31497-all-dev.tgt.e3.c.emag.network"
+alias tdev="ssh tgt-all31497-all-dev.tgt.e5.c.emag.network"
 alias rb1="ssh tgt-build1-all-prod.emag.network"
 alias ts1="ssh tgt-www1-all-stage.emag.network"
 alias tp1="ssh tgt-www1-all-prod.emag.network"
@@ -198,7 +203,7 @@ alias tp14="ssh tgt-www14-all-prod.emag.network"
 alias tp15="ssh tgt-www15-all-prod.emag.network"
 alias tp16="ssh tgt-www16-all-prod.emag.network"
 # -- rec prod/stage/dev/stack
-alias rdev="ssh rec-all68861-all-dev.tgt.e3.c.emag.network"
+alias rdev="ssh rec-all68861-all-dev.tgt.e5.c.emag.network"
 alias rs1="ssh rec-www1-all-stage.emag.network"
 alias rp1="ssh rec-www1-all-prod.emag.network"
 alias rp2="ssh rec-www2-all-prod.emag.network"
@@ -232,11 +237,11 @@ alias rnp4="ssh rec-neoj4-ro-prod.emag.network"
 alias rnp5="ssh rec-neoj5-ro-prod.emag.network"
 alias rns1="ssh rec-neoj1-ro-stage.emag.network"
 # -- Stack vanilla machines (vst=Vanilla Stack Teo)
-alias vst1="ssh gen-centos724847-all-dev.tgt.e3.c.emag.network"
-alias vst2="ssh gen-centos712460-all-dev.tgt.e3.c.emag.network"
-alias vst3="ssh gen-centos716589-all-dev.tgt.e3.c.emag.network"
-alias vst4="ssh gen-centos736970-all-dev.tgt.e3.c.emag.network"
-alias vst5="ssh gen-centos741099-all-dev.tgt.e3.c.emag.network"
+alias vst1="ssh gen-centos724847-all-dev.tgt.e5.c.emag.network"
+alias vst2="ssh gen-centos712460-all-dev.tgt.e5.c.emag.network"
+alias vst3="ssh gen-centos716589-all-dev.tgt.e5.c.emag.network"
+alias vst4="ssh gen-centos736970-all-dev.tgt.e5.c.emag.network"
+alias vst5="ssh gen-centos741099-all-dev.tgt.e5.c.emag.network"
 # services aliases:
 alias ssstop="sudo systemctl stop $1"
 alias ssstart="sudo systemctl start $1"
