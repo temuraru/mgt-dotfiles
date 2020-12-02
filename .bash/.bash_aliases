@@ -160,6 +160,7 @@ alias tlf='tail -f /var/www/q.consumer/logs/error.log /var/www/q.consumer/logs/o
 alias rmass="rm -rf web/bundles/* && php app/console assets:install && php app/console assetic:dump"
 alias rac="rm -rf app/cache/* && rm -rf var/cache/*"
 alias assetic="php app/console assets:install && php app/console assetic:dump"
+alias raca="assetic && rac"
 alias r1="echo $1"
 #git
 alias gs="git status"
@@ -172,19 +173,20 @@ alias sv="supervisorctl -s 'http://127.0.0.1:8989' -u admin -p parolasupervisor1
 alias sss="sudo supervisorctl status"
 # ssh to servers
 # -- TGT Build - to make deploys/run capistrano cmds from it
-alias tb1_old="ssh tgt-build1-all-prod.emag.network"
 alias tb1="ssh tgt-deploy1-all-prod.emag.network"
+alias td1="ssh tgt-deploy1-all-prod.emag.network"
 alias rb1="ssh rec-deploy1-all-prod.emag.network"
+alias rd1="ssh rec-deploy1-all-prod.emag.network"
 alias tdeploy="ssh tgt-deploy1-all-prod.emag.network"
 alias rdeploy="ssh rec-deploy1-all-prod.emag.network"
+alias tb1_old="ssh tgt-build1-all-prod.emag.network"
 alias tbuild="ssh tgt-build1-all-prod.emag.network"
-# -- Neos dev/prod
+# -- Neos dev/prod - Deprecated!
 alias np1="ssh neos-www1-all-prod.emag.network"
 alias np2="ssh neos-www2-all-prod.emag.network"
 alias ndev="ssh neos-all18071-all-dev.tgt.e5.c.emag.network"
 # -- Tgt dev/prod
 alias tdev="ssh tgt-all31497-all-dev.tgt.e5.c.emag.network"
-alias rb1="ssh tgt-build1-all-prod.emag.network"
 alias ts1="ssh tgt-www1-all-stage.emag.network"
 alias tp1="ssh tgt-www1-all-prod.emag.network"
 alias tp2="ssh tgt-www2-all-prod.emag.network"
