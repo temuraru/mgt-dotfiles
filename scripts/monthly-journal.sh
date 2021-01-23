@@ -71,16 +71,18 @@ function join_by2 { local d=$1; shift; echo -n "$1"; shift; printf "%s" "${@/#/$
 # $(daysNrForMonth 2 2021) -> 28
 daysNrForMonth() {
   CurrentMonth=$(date +"%m")
+  CurrentYear=$(date +"%Y")
 	Cmonth=${1:-$CurrentMonth}
-	Cyear=${2:-"%Y"}
-  CalDateFormat="$Cmonth $Cyear"
-  #echo "month: "  $cmonth  " " $cyear
-  # echo "CalDateFormat: "  $CalDateFormat
+	Cyear=${2:-CurrentYear}
+  CalDate="$Cmonth $Cyear" # 2 2021 or 12 2020
+  # echo "month: "  $cmonth  " " $cyear
 
+  # [10 Practical Examples of Linux Cal/NCal command for Beginners](https://www.howtoforge.com/linux-cal-ncal-command/)
   # cal 4 2013 | awk 'NF {DAYS = $NF}; END {print DAYS}' ##30
-  local DAYS_NR=$(cal $(date +"$CalDateFormat") | awk 'NF {DAYS = $NF}; END {print DAYS}')
+  # ncal -C 4 2013 | awk 'NF {DAYS = $NF}; END {print DAYS}' ##30
+  DAYS_NR=$(ncal -C $CalDate | awk 'NF {DAYS = $NF}; END {print DAYS}')
 
-  echo $DAYS_NR
+  echo "$DAYS_NR"
 }
 
 # cal 4 2013 | awk 'NF {DAYS = $NF}; END {print DAYS}' ##30

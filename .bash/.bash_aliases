@@ -1,3 +1,4 @@
+#!/bin/bash
 alias aliases='less ~/.dotfiles/.bash/.bash_aliases ~/.gitconfig'
 alias vimaliass='vim ~/.bash/.bash_aliases'
 # General
@@ -151,8 +152,8 @@ alias cdnjd='cd /var/lib/neo4j/data/databases/'
 alias dtp='cd ~/Desktop'
 alias cdht='cd ~/work/projects/tgt/'
 alias cdlt='cd ~/work/projects/trigger-system/'
-alias cdhc='cd ~/work/projects/rec-engine-app/'
-alias cdlc='cd ~/work/projects/rec-engine-app/'
+alias cdhr='cd ~/work/projects/rec-engine-app/'
+alias cdlr='cd ~/work/projects/rec-engine-app/'
 #tail
 alias tl='tail -f /var/log/nginx/m.emag.ro-error.log /var/log/nginx/admin.emag.ro-error.log /var/log/nginx/www.emag.ro-error.log'
 alias tlf='tail -f /var/www/q.consumer/logs/error.log /var/www/q.consumer/logs/order_update_log.log /var/log/nginx/admin.emag.ro-error.log /var/log/nginx/www.emag.ro-error.log /var/log/nginx/m.emag.ro-error.log /var/www/gearman/logs/error.log /var/www/gearman/logs/workers/update_orders.log /var/www/gearman/logs/workers/vignette_order_update_worker.log'
@@ -293,7 +294,7 @@ alias pingpi='ping pi@192.168.1.30'
 
 # https://johnnydecimal.com - @TODO - TBD!!
 cjdfunction() {
-	pushd ~/Dropbox/Personal/boostnotes/*/*/${1}* # ~/Dropbox is my root folder, change to suit yours.
+	pushd "$HOME/Dropbox/Personal/boostnotes/*/*/${1}*" || return # ~/Dropbox is my root folder, change to suit yours.
 }
 export cjdfunction
 alias cjd='cjdfunction' # Or any other alias you prefer.
