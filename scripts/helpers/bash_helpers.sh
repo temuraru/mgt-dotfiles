@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+# sourced by ~/.dotfiles/scripts/include-helpers.sh, which is called by ~/.dotfiles/manager.sh
+
+# scriptPath=${0%/*}
+# echo "-============bashhelpers- Current script path: $scriptPath"
 
 function apt-updater {
 	apt-get update &&
@@ -68,8 +73,7 @@ teleport() {
 	cd "$(find . -type d 2>/dev/null | grep -m1 -iP "$@")";
 }
 telepick() {
-	telepeek $@;
+	telepeek "$@";
 	read -p "jump to index: " line_number;
 	cd "$(find . -type d 2>/dev/null | grep -iP "$1" | sed "${line_number}q;d")";
 }
-

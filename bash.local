@@ -24,8 +24,7 @@ export STACK=teodor.muraru-dev
 export country_code=ro
 export EMAGOTPSECRET='OLUJOVSRDN5VOSCUQCEI5DEZ7BQ7IJTF' 
 # send keys to remote servers on each ssh
-ssh-agent -s
-ssh-add
+{ eval `ssh-agent`; ssh-add; } &>/dev/null
 
 # neofetch
 
@@ -52,5 +51,5 @@ fi
 
 export TERM=xterm-256color
 
-# Pyradio stations list sync - shoudl be done manually!? written in the console, after the setup is finished, maybe!?
+# Pyradio stations list sync - should be done/written manually in the console, after the setup is finished, maybe!?
 # rm -rf ~/.local/lib/python3.8/site-packages/pyradio/stations.csv && ln -s ~/.dotfiles/.config/pyradio/stations.csv ~/.local/lib/python3.8/site-packages/pyradio/stations.csv

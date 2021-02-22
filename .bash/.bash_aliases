@@ -162,6 +162,7 @@ alias rmass="rm -rf web/bundles/* && php app/console assets:install && php app/c
 alias rac="rm -rf app/cache/* && rm -rf var/cache/*"
 alias assetic="php app/console assets:install && php app/console assetic:dump"
 alias raca="assetic && rac"
+alias ract="~/.dotfiles/scripts/ractgt.sh ."
 alias r1="echo $1"
 #git
 alias gs="git status"
