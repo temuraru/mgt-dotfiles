@@ -23,7 +23,9 @@ fi
 export STACK=teodor.muraru-dev
 export country_code=ro
 export EMAGOTPSECRET='OLUJOVSRDN5VOSCUQCEI5DEZ7BQ7IJTF' 
-# send keys to remote servers on each ssh
+
+# send keys to remote servers on each ssh; 
+# silence ssh-* commands (do not output anything in console at bash-login time!) -> https://unix.stackexchange.com/a/73607
 { eval `ssh-agent`; ssh-add; } &>/dev/null
 
 # neofetch
